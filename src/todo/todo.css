@@ -1,0 +1,30 @@
+.Todo {
+    background-color: white;
+    display: flex;    
+    flex-direction: row; 
+    justify-content: left;
+    padding-bottom: 60px;
+}
+
+.Todo .Button {      
+    display: flex;    
+    flex-direction: row; 
+    justify-content: right;    
+}
+
+
+.btn {
+    margin-right: 5px;
+    justify-content: right;
+}
+
+.MarkedAsDone {
+    text-decoration: line-through;
+    color: #777
+}
+
+.tableActions {
+    
+    width: 120px
+}
+
