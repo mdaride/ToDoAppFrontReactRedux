@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom'
 import { applyMiddleware, createStore } from 'redux'
 
 import { Provider } from 'react-redux'
-//import multi from 'redux-multi'
-
+import multi from 'redux-multi'
 import promise from 'redux-promise'
+import thunk from 'redux-thunk'
 
 import App from './main/App'
 import reducers from './main/reducers'
@@ -15,14 +15,13 @@ import './index.css'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   && window.__REDUX_DEVTOOLS_EXTENSION__()
-//applyMiddleware(promisse) retorna um método X
+//applyMiddleware(thunk, multi, promise) retorna um método X
 //Para o método X é passado createStore como parâmetro
 //A chamada de applyMiddleware(promise)(createStore), ou seja, X(createStore), retorna uma função Y
 //Para a função Y é passado (reducers, devTools) como parâmetro
-const store = applyMiddleware(promise)(createStore)(reducers, devTools)
+const store = applyMiddleware(thunk, multi, promise)(createStore)(reducers, devTools)
 ReactDOM.render(
   <Provider store={store}>
-
     <React.StrictMode>
       <App />
     </React.StrictMode>
